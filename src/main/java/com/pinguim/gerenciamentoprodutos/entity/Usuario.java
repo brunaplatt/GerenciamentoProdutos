@@ -5,18 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Venda {
+public class Usuario {
     int codigo;
-    LocalDateTime data;
-    String cliente;
-    String cnpj;
-    Double pagamento;
-    Produto produto;
+    String nome;
+    String senha;
+    int cpf;
 }

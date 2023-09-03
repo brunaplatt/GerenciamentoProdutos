@@ -30,7 +30,7 @@ public class GerencimentoController {
         return produtoRepository.buscarAtivos();
     }
 
-    @GetMapping ("/buscarProdutos")
+    @GetMapping ("/buscarProdutos/{nome}")
     public List<Produto> buscarProdutos(@PathVariable("nome") String name){
         return produtoRepository.buscaPorNome(name);
     }
