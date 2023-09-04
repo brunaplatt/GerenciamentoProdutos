@@ -30,6 +30,17 @@ public class GerencimentoController {
         return produtoRepository.buscarAtivos();
     }
 
+    @GetMapping ("/buscarProdutos")
+    public List<Produto> buscarProdutos(@PathVariable("nome") String name){
+        return produtoRepository.buscaPorNome(name);
+    }
+
+    @GetMapping ("/buscarPorFabricante/{fabricante}")
+    public List<Produto> buscarPorFabricante(@PathVariable("fabricante") String fabricante){
+        return produtoRepository.buscaPorFabricante(fabricante);
+    }
+
+
     @PostMapping("/cadastrar")
     public String cadastrarProduto(@RequestBody Produto produto){
         produtoRepository.save(produto);

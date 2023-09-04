@@ -12,7 +12,11 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     @Query("Select k from Produto k where k.nome like ?1")
     List<Produto> buscaPorNome(String nome);
-    
+
+
+    @Query("Select k from Produto k where k.fabricante like ?1")
+    List<Produto> buscaPorFabricante(String fabricante);
+
     @Query("Select k from Produto k where k.ativo = 1")
     List<Produto> buscarAtivos();
     
