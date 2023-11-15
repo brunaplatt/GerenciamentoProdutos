@@ -1,4 +1,4 @@
-package com.pinguim.gerenciamentoprodutos;
+package com.pinguim;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,4 @@ public class GerenciamentoProdutosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GerenciamentoProdutosApplication.class, args);
 	}
-
 }
