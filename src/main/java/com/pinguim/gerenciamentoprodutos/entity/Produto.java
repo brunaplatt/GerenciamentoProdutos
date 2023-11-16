@@ -14,7 +14,7 @@ public class Produto {
     private StatusProduto status;
     private long id;
     private String nome;
-    // Getters and setters for cor
+
     @Getter
     private String cor;
     private double preco;
