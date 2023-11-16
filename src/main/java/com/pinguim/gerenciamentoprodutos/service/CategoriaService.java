@@ -1,7 +1,7 @@
 package com.pinguim.gerenciamentoprodutos.service;
 
-import com.pinguim.gerenciamentoprodutos.dao.CategoriaDao;
 import com.pinguim.gerenciamentoprodutos.entity.Categoria;
+import com.pinguim.gerenciamentoprodutos.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +10,14 @@ import java.util.List;
 @Service
 public class CategoriaService {
     @Autowired
-    private CategoriaDao categoriaDao;
+    private CategoriaRepository categoriaDao;
 
     public List<Categoria> listarCategorias() {
         return categoriaDao.findAll();
     }
 
-    public Categoria cadastrarCategoria(Categoria categoria) {
-        return categoriaDao.save(categoria);
+    public void cadastrarCategoria(Categoria categoria) {
+        categoriaDao.save(categoria);
     }
 
     public void excluirCategoria(Long categoriaId) {

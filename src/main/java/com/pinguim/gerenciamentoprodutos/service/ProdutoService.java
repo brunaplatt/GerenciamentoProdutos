@@ -1,7 +1,7 @@
 package com.pinguim.gerenciamentoprodutos.service;
 
-import com.pinguim.gerenciamentoprodutos.dao.ProdutoDao;
 import com.pinguim.gerenciamentoprodutos.entity.Produto;
+import com.pinguim.gerenciamentoprodutos.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ProdutoService {
 
     @Autowired
-    private ProdutoDao produtoDao;
+    private ProdutoRepository produtoDao;
 
     public List<Produto> listarProdutos() {
         return produtoDao.findAll();

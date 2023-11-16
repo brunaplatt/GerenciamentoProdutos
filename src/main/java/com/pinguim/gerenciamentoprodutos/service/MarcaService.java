@@ -1,7 +1,7 @@
 package com.pinguim.gerenciamentoprodutos.service;
 
-import com.pinguim.gerenciamentoprodutos.dao.MarcaDao;
 import com.pinguim.gerenciamentoprodutos.entity.Marca;
+import com.pinguim.gerenciamentoprodutos.repository.MarcaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +10,14 @@ import java.util.List;
 @Service
 public class MarcaService {
     @Autowired
-    private MarcaDao marcaDao;
+    private MarcaRepository marcaDao;
 
     public List<Marca> listarMarcas() {
         return marcaDao.findAll();
     }
 
-    public Marca cadastrarMarca(Marca marca) {
-        return marcaDao.save(marca);
+    public void cadastrarMarca(Marca marca) {
+        marcaDao.save(marca);
     }
 
     public void excluirMarca(Long marcaId) {

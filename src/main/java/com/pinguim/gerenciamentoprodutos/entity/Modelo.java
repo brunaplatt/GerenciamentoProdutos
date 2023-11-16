@@ -1,13 +1,24 @@
 package com.pinguim.gerenciamentoprodutos.entity;
 
-public class Modelo {
-    private long id;
-    private String modelo;
-    private int anoFabricacao;
-    private String voltagem;
-    private int litros;
+import jakarta.persistence.*;
 
-    public Modelo(long id, String modelo, int anoFabricacao, String voltagem, int litros) {
+@Entity
+public class Modelo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
+    private String modelo;
+    @Column
+    private int anoFabricacao;
+    @Column
+    private String voltagem;
+    @Column
+    private int litros;
+    public Modelo(){
+
+    }
+    public Modelo(Long id, String modelo, int anoFabricacao, String voltagem, int litros) {
         this.id = id;
         this.modelo = modelo;
         this.anoFabricacao = anoFabricacao;
@@ -15,7 +26,7 @@ public class Modelo {
         this.litros = litros;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -56,12 +67,12 @@ public class Modelo {
     }
     @Override
     public String toString() {
-        return "Modelo{" +
-                "id=" + id +
-                ", modelo='" + modelo + '\'' +
-                ", anoFabricacao=" + anoFabricacao +
-                ", voltagem='" + voltagem + '\'' +
-                ", litros=" + litros +
-                '}';
+        return "Modelo[" +
+                "id" + id +
+                ", modelo" + modelo +
+                ", anoFabricacao" + anoFabricacao +
+                ", voltagem" + voltagem  +
+                ", litros" + litros +
+                ']';
     }
 }

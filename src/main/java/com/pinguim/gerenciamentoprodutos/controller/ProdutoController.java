@@ -1,71 +1,65 @@
 package com.pinguim.gerenciamentoprodutos.controller;
 
 import com.pinguim.gerenciamentoprodutos.entity.Produto;
+import com.pinguim.gerenciamentoprodutos.repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
+@RestController
+@RequestMapping ("/")
 public class ProdutoController {
-    private List<Produto> produtos;
 
-    public ProdutoController() {
-        this.produtos = new ArrayList<>();
+    ProdutoRepository produtoRepository;
+
+    @GetMapping ("/hello")
+    public ResponseEntity<Produto> helloWord(){
+        Produto produto = new Produto();
+        produto.setModelo("Frost Free French Door A+++ - BRO85AK");
+        produto.setAno(2022);
+        produto.setFabricante("Brastemp");
+        return new ResponseEntity<>(produto, HttpStatus.OK);
+    }
+    @GetMapping ("/listar")
+    public List<Produto> listarProdutos(){
+        return produtoRepository.buscarAtivos();
     }
 
-    public void cadastrarProduto(Produto produto) {
-        // Verifica se um produto idêntico já existe na lista
-        List<Produto> produtosIdenticos = produtos.stream()
-                .filter(p -> saoProdutosIdenticos(p, produto))
-                .collect(Collectors.toList());
-
-        if (!produtosIdenticos.isEmpty()) {
-            // Se já existir, soma a quantidade ao produto existente
-            Produto produtoExistente = produtosIdenticos.get(0);
-            produtoExistente.getEstoque().somarQuantidadeProdutos(produto.getEstoque().getQuantidadeProdutos());
-        } else {
-            // Se não existir, adiciona o novo produto à lista
-            produtos.add(produto);
-        }
+    @GetMapping ("/buscarProdutos/{nome}")
+    public List<Produto> buscarProdutos(@PathVariable("nome") String name){
+        return produtoRepository.buscaPorNome(name);
     }
 
-    public void editarProduto(Produto produto) {
-        // Implemente a lógica para editar um produto, considerando a soma de quantidade
-        // Pode ser necessário remover o produto antigo e cadastrar o novo
+    @GetMapping ("/buscarPorFabricante/{fabricante}")
+    public List<Produto> buscarPorFabricante(@PathVariable("fabricante") String fabricante){
+        return produtoRepository.buscaPorFabricante(fabricante);
     }
 
-    public void excluirProduto(long produtoId) {
-        produtos.removeIf(p -> p.getId() == produtoId);
+
+    @PostMapping("/cadastrar")
+    public String cadastrarProduto(@RequestBody Produto produto){
+        produtoRepository.save(produto);
+        return "Cadastrado com sucesso";
     }
 
-    // Método verificar se dois produtos são idênticos
-    private boolean saoProdutosIdenticos(Produto produto1, Produto produto2) {
-        return produto1.getCategoria().equals(produto2.getCategoria()) &&
-                produto1.getModelo().equals(produto2.getModelo()) &&
-                produto1.getMarca().equals(produto2.getMarca()) &&
-                produto1.getCor().equals(produto2.getCor());
+    @PutMapping("/alterar")
+    public String editarProduto(@RequestBody Produto produto){
+        produtoRepository.save(produto);
+        return "Produto alterado com sucesso";
     }
 
-    public List<Produto> listarProdutos() {
-        return produtos;
+    @DeleteMapping("/excluir/{codigo}")
+    public String excluirProduto(@PathVariable("codigo") Long codigo){
+        produtoRepository.deleteById(codigo);
+        return "Produto excluído com sucesso";
     }
 
-    public static void main(String[] args) {
-        ProdutoController produtoController = new ProdutoController();
-
-        // cadastro de produtos
-        Produto produto1 = new Produto(/* ... preencha os atributos ... */);
-        produtoController.cadastrarProduto(produto1);
-
-        Produto produto2 = new Produto(/* ... preencha os atributos ... */);
-        produtoController.cadastrarProduto(produto2);
-
-        // listagem de produtos
-        List<Produto> listaProdutos = produtoController.listarProdutos();
-        System.out.println("Lista de Produtos:");
-        listaProdutos.forEach(System.out::println);
-
-        // exclusão de produto
-        produtoController.excluirProduto(produto1.getId());
+    @GetMapping("/consultar/{codigo}")
+    public Optional<Produto> consultaProduto(@PathVariable("codigo") Long codigo){
+        return produtoRepository.findById(codigo);
     }
 }

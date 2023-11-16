@@ -1,64 +1,49 @@
 package com.pinguim.gerenciamentoprodutos.entity;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
 public class Estoque {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
+    private Long id_produto;
+    @Column
     private int quantidade;
-    private String id;
-    private int quantidadeProdutos;
-    private List<Long> idProdutos;
-    private List<Produto> listaProdutos;
 
-    public Estoque(String id, int quantidadeProdutos, List<Long> idProdutos, List<Produto> listaProdutos) {
+    public Estoque(){
+
+    }
+    public Estoque(Long id, int quantidade, Long id_produto) {
         this.id = id;
-        this.quantidadeProdutos = quantidadeProdutos;
-        this.idProdutos = idProdutos;
-        this.listaProdutos = listaProdutos;
+        this.quantidade = quantidade;
+        this.id_produto = id_produto;
     }
 
-    public void somarQuantidadeProdutos(int quantidadeASomar) {
-        this.quantidadeProdutos += quantidadeASomar;
-    }
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getQuantidadeProdutos() {
-        return quantidadeProdutos;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setQuantidadeProdutos(int quantidadeProdutos) {
-        this.quantidadeProdutos = quantidadeProdutos;
-    }
-
-    public List<Long> getIdProdutos() {
-        return idProdutos;
-    }
-
-    public void setIdProdutos(List<Long> idProdutos) {
-        this.idProdutos = idProdutos;
-    }
-
-    public List<Produto> getListaProdutos() {
-        return listaProdutos;
-    }
-
-    public void setListaProdutos(List<Produto> listaProdutos) {
-        this.listaProdutos = listaProdutos;
-    }
-
+    public void setQuantidade(int quantidade) { this.quantidade = quantidade;}
     @Override
     public String toString() {
-        return "Estoque{" +
-                "id='" + id + '\'' +
-                ", quantidadeProdutos=" + quantidadeProdutos +
-                ", idProdutos=" + idProdutos +
-                ", listaProdutos=" + listaProdutos +
-                '}';
+        return "Estoque[" +
+                "id" + id +
+                ", quantidade" + quantidade +
+                ", id_produto=" + id_produto +
+                ']';
     }
 }
 

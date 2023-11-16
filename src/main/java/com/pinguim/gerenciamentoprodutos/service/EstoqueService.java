@@ -1,7 +1,7 @@
 package com.pinguim.gerenciamentoprodutos.service;
 
-import com.pinguim.gerenciamentoprodutos.dao.EstoqueDao;
 import com.pinguim.gerenciamentoprodutos.entity.Estoque;
+import com.pinguim.gerenciamentoprodutos.repository.EstoqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,18 +10,18 @@ import java.util.List;
 @Service
 public class EstoqueService {
     @Autowired
-    private EstoqueDao estoqueDao;
+    private EstoqueRepository estoqueRepository;
 
     public List<Estoque> listarEstoques() {
-        return estoqueDao.findAll();
+        return estoqueRepository.findAll();
     }
 
-    public Estoque cadastrarEstoque(Estoque estoque) {
-        return estoqueDao.save(estoque);
+    public void cadastrarEstoque(Estoque estoque) {
+        estoqueRepository.save(estoque);
     }
 
     public void excluirEstoque(Long estoqueId) {
-        estoqueDao.deleteById(estoqueId);
+        estoqueRepository.deleteById(estoqueId);
     }
 
 }

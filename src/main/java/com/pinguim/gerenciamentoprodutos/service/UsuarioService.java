@@ -1,7 +1,7 @@
 package com.pinguim.gerenciamentoprodutos.service;
 
-import com.pinguim.gerenciamentoprodutos.dao.UsuarioDao;
 import com.pinguim.gerenciamentoprodutos.entity.Usuario;
+import com.pinguim.gerenciamentoprodutos.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class UsuarioService {
 
     @Autowired
-    private UsuarioDao usuarioDao;
+    private UsuarioRepository usuarioDao;
 
     public List<Usuario> listarUsuarios() {
         return usuarioDao.findAll();

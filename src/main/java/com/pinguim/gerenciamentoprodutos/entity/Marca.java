@@ -1,19 +1,27 @@
 package com.pinguim.gerenciamentoprodutos.entity;
 
-public class Marca {
-    private long id;
-    private String fabricante;
+import jakarta.persistence.*;
 
-    public Marca(long id, String fabricante) {
+@Entity
+public class Marca {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
+    private String fabricante;
+    public Marca(){
+
+    }
+    public Marca(Long id, String fabricante) {
         this.id = id;
         this.fabricante = fabricante;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -27,9 +35,9 @@ public class Marca {
 
     @Override
     public String toString() {
-        return "Marca{" +
-                "id=" + id +
-                ", fabricante='" + fabricante + '\'' +
-                '}';
+        return "Marca[" +
+                "id" + id +
+                ", fabricante" + fabricante +
+                ']';
     }
 }

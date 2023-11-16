@@ -1,7 +1,7 @@
 package com.pinguim.gerenciamentoprodutos.service;
 
-import com.pinguim.gerenciamentoprodutos.dao.ModeloDao;
 import com.pinguim.gerenciamentoprodutos.entity.Modelo;
+import com.pinguim.gerenciamentoprodutos.repository.ModeloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +10,14 @@ import java.util.List;
 @Service
 public class ModeloService {
     @Autowired
-    private ModeloDao modeloDao;
+    private ModeloRepository modeloDao;
 
     public List<Modelo> listarModelos() {
         return modeloDao.findAll();
     }
 
-    public Modelo cadastrarModelo(Modelo modelo) {
-        return modeloDao.save(modelo);
+    public void cadastrarModelo(Modelo modelo) {
+        modeloDao.save(modelo);
     }
 
     public void excluirModelo(Long modeloId) {

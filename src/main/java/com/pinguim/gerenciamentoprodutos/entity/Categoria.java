@@ -1,19 +1,28 @@
 package com.pinguim.gerenciamentoprodutos.entity;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Categoria {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String nome;
 
-    public Categoria(long id, String nome) {
+    public Categoria(){
+
+    }
+    public Categoria(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

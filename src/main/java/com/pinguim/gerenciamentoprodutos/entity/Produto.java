@@ -2,117 +2,142 @@ package com.pinguim.gerenciamentoprodutos.entity;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 public class Produto {
-    public enum StatusProduto {
-        ATIVO, INATIVO
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private StatusProduto status;
-    private long id;
+    private Long codigo;
+    @Column
     private String nome;
-
+    @Column
+    private String categoria;
+    @Column
+    private String modelo;
+    @Column
+    private int ano;
+    @Column
+    private String fabricante;
     @Getter
+    @Column
+    private int voltagem;
+    @Column
+    private int litros;
+    @Column
     private String cor;
-    private double preco;
-    private Estoque estoque;
-    private Marca marca;
-    private Categoria categoria;
-    private Modelo modelo;
+    @Column
+    private Double preco;
 
-    public Produto() {
-        this.id = id;
-        this.nome = nome;
-        this.cor = cor;
-        this.preco = preco;
-        this.estoque = estoque;
-        this.marca = marca;
+    @Column
+    private int ativo;
+
+    public Produto(){
+
+    }
+
+    public Produto(String produto){ this.nome = produto; }
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
-        this.modelo = modelo;
     }
-
-    @Enumerated(EnumType.STRING)
-    private StatusProduto statusProduto;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-        }
 
     public void setCor(String cor) {
         this.cor = cor;
     }
 
-    public double getPreco() {
-        return preco;
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setLitros(int litros) {
+        this.litros = litros;
     }
 
-    public StatusProduto getStatus() {
-        return this.status;
-    }
-
-    public Estoque getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
-    }
-
-    public Marca getMarca() {
-        return marca;
-    }
-
-    public void setMarca(Marca marca) {
-        this.marca = marca;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    public Modelo getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(Modelo modelo) {
+    public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public void setVoltagem(int voltagem) {
+        this.voltagem = voltagem;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public int getVoltagem() {
+        return voltagem;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    public Double getPreco() {
+        return preco;
+    }
+    public int getAno() {
+        return ano;
+    }
+    public int getLitros() {
+        return litros;
+    }
+
+    public int getAtivo() {
+        return ativo;
+    }
+
     @Override
-    public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cor='" + cor + '\'' +
-                ", preco=" + preco +
-                ", status=" + statusProduto +
-                ", estoque=" + estoque +
-                ", marca=" + marca +
-                ", categoria=" + categoria +
-                ", modelo=" + modelo +
-                '}';
+    public String toString(){
+        return "Produto [codigo="+codigo
+                +", nome"+nome
+                +", categoria"+categoria
+                +", modelo"+modelo
+                +", ano"+ano
+                +", fabricante"+fabricante
+                +", voltagem"+voltagem
+                +", litros"+litros
+                +", cor"+cor
+                +", preco"+preco
+                +", ativo"+ativo
+                +"]";
     }
 }

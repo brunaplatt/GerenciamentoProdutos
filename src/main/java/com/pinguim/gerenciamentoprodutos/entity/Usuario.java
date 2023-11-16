@@ -1,22 +1,31 @@
 package com.pinguim.gerenciamentoprodutos.entity;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
 
+@Entity
 public class Usuario {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String nome;
+    @Column
     private String email;
+    @Column
     private String senha;
+    @Column
     private boolean status;
+    @Column
     private boolean usuarioAdm;
 
+    public Usuario(){
+
+    }
     public Usuario(long id, String nome, String email, String senha, boolean status, boolean usuarioAdm) {
         this.id = id;
         this.nome = nome;
@@ -76,14 +85,13 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", status=" + status +
-                ", usuarioAdm=" + usuarioAdm +
-                '}';
+        return "Usuario[id="+id
+                +", nome"+nome
+                +", email"+email
+                +", senha"+senha
+                +", status"+status
+                +", usuarioAdm"+usuarioAdm
+                +"]";
     }
 }
 
