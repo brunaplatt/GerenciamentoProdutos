@@ -2,17 +2,81 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title>Gerenciador de Produtos</title>
+    <title>Pinguim - Gerenciador de Produtos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="pinguim.ico">
+    <link href=>
 </head>
 <body>
-<header>
+    <div class="secao secao-titulo">
+        <img src="logo.png" alt="imagem da logo">
 
-</header>
-<div class="container"></div>
+        <h1>Pinguim</h1>
+        <h2>Gerenciador de Produtos</h2>
 
+        <p class="parag-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#login">Login</a>
+            <a href="#contato">Contato</a>
+        </p>
+    </div>
+    <div class="secao secao-sobre" id="sobre">
+        <h3>SOBRE</h3>
 
+        <p class="parag-sobre">
+            O sistema de <span class="texto-azul">gerenciamento de produtos</span> Pinguim tem como objetivo
+            <span class="texto-azul">controlar o estoque</span> de eletrodomésticos voltados para a área de
+            refrigeração. Com este software sua empresa poderá ter acesso em tempo real ao número de cada
+            produtos disponíveis em seu estoque, oferecendo segurança no momento da venda. O software Pinguim
+            funciona através da Web e pode ser acessado em qualquer navegador, além de ter a possibilidade de ser
+            interligado a sistemas externos de uso da empresa, para que o gerenciamento seja mais preciso.
+        </p>
+    </div>
+    <div class="secao secao-login" id="login">
+        <h3>ACESSE O SISTEMA</h3>
 
+        <input type="text" id="username" name="username" placeholder="Digite seu usuário">
+        <br>
+        <br>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha">
+        <br>
+        <br>
+        <button onclick="login()">Entrar</button>
+        <br>
+        <br>
+        <a class="redefinir-senha" href="redefinirsenha.html" target="_blank" onclick="abrirNovaJanela(); resetPassword();">Esqueceu sua Senha?</a>
+    </div>
+    <div class="secao secao-contato" id="contato">
+        <h3>CONTATO</h3>
+
+        <p class="parag-contato">Se ficou interessado em nos conhecer ou se tiver dúvidas entre em
+            <span class="texto-azul">contato</span> conosco através dos e-mails e/ou telefones abaixo:</p>
+        <div class="links-contatos">
+            <div class="contatos-grupo">
+                <img src="email.ico" atl="icone email">
+                <h4>E-mails:</h4>
+                <ul>
+                    <li><a href="mailto:comercial@pinguim.com">Comercial</a></li>
+                    <li><a href="mailto:suporte@pinguim.com">Suporte</a></li>
+                    <li><a href="mailto:corretores@pinguim.com">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+            <div class="contatos-grupo">
+                <img src="fone.ico" atl="icone telefone">
+                <h4>Telefones:</h4>
+                <ul>
+                    <li><a href="tel:+4833333333">+48 3333 33 33</a></li>
+                    <li><a href="tel:+4899999999">+48 9999 99 99</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <b>Todos os Direitos Reservados®</b>
+    </div>
+    <div id="btnTop" onclick="scrollToTop()">
+        <i class="btn up"></i>
+    </div>
+    <script src=script.js></script>
 </body>
 </html>
