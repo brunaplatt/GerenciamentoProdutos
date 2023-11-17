@@ -33,4 +33,12 @@ public class ProdutoService {
     public void excluirProduto(Long id) {
         produtoDao.deleteById(id);
     }
+
+    public List<Produto> gerarRelatorio(String atributo) {
+    }
 }
+
+
+
+
+

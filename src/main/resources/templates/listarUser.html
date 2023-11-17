@@ -4,10 +4,67 @@
     <meta charset="utf-8">
     <title>Gerenciador de Produtos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" th:href="@{pinguim.ico}">
     <link th:href="@{/styles.css}" rel="stylesheet" />
 </head>
 <body>
+<div class="barra_menu">
+    <div class="logo"><img src="../static/logo.png" alt="imagem da logo"></div>
+    <div class="menu_titulo"><h2>Gerenciador de Produtos</h2></div>
+</div>
+<div class="links_adm">
+    <ul>
+        <li class="link-user">
+            <a href="usuarioadmin.html">Home</a>
+        </li>
+        <li class="link-user">
+            <a href="">Usuários</a>
+
+            <div class="nav">
+                <a href="cadastroUser.html">Cadastros</a>
+                <a href="listarUser.html">Consultas</a>
+                <a href="relatorioUser.html">Relatórios</a>
+            </div>
+        </li>
+        <li class="link-user">
+            <a href="">Produtos</a>
+
+            <div class="nav">
+                <a href="cadastroProd.html">Cadastros</a>
+                <a href="listarProd.html">Consultas</a>
+                <a href="relatorioProd.html">Relatórios</a>
+            </div>
+        </li>
+        <li class="link-user">
+            <a href="">Estoque</a>
+
+            <div class="nav">
+                <a href="listarEst.html">Consultas</a>
+                <a href="relatorioEst.html">Relatórios</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="list-user">
+    <h2>Listagem de Usuários</h2>
+
+    <label for="atributo">Selecione um atributo:</label>
+    <select id="atributo">
+        <option value="id">Id</option>
+        <option value="nome">Nome</option>
+        <option value="nome">Setor</option>
+        <option value="email">E-mail</option>
+        <option value="status">Status</option>
+        <option value="usuarioaAdm">Admin?</option>
+    </select>
+
+    <button onclick="listarProdutos()">Listar Produtos</button>
+
+    <table id="tabela">
+
+    </table>
+</div>
 
 </body>
 </html>

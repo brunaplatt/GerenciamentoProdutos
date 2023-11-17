@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Gerenciador de Produtos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" th:href="@{pinguim.ico}">
     <link th:href="@{/styles.css}" rel="stylesheet" />
 </head>
@@ -108,13 +109,20 @@
     </select>
 
     <label class="titCad" for="preco">Valor:</label>
-    <input class="campCad" type="number" id="preco" name="preco" required>
+    <span class="input-preco">R$</span>
+    <span class="input-preco">0,00</span>
+    <input class="form-control" type="text" id="preco" name="preco" required>
 
     <label class="titCad" for="status">Status:</label>
     <select id="status" name="status">
         <option class="optSta" value="ativo">Ativo</option>
         <option class="optSta" value="inativo">Inativo</option>
     </select>
+
+    <div class="input-group">
+        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button>
+    </div>
 
     <button class="btnCad" type="submit">Cadastrar</button>
 </form>
