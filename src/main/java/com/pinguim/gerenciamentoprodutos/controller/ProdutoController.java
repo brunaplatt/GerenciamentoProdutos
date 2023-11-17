@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping ("/")
+@RequestMapping ("/produto")
 public class ProdutoController {
 
     ProdutoRepository produtoRepository;
@@ -26,6 +27,7 @@ public class ProdutoController {
     }
     @GetMapping ("/listar")
     public List<Produto> listarProdutos(){
+
         return produtoRepository.buscarAtivos();
     }
 

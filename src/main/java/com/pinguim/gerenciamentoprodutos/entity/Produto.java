@@ -22,7 +22,6 @@ public class Produto {
     private int ano;
     @Column
     private String fabricante;
-    @Getter
     @Column
     private int voltagem;
     @Column
