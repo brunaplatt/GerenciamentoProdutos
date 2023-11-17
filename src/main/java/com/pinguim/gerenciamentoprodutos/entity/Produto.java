@@ -19,20 +19,20 @@ public class Produto {
     @Column
     private String modelo;
     @Column
-    private int ano;
+    private Integer ano;
     @Column
     private String fabricante;
     @Column
-    private int voltagem;
+    private Integer voltagem;
     @Column
-    private int litros;
+    private Integer litros;
     @Column
     private String cor;
     @Column
     private Double preco;
 
     @Column
-    private int ativo;
+    private Integer ativo;
 
     public Produto(){
 
@@ -43,7 +43,7 @@ public class Produto {
         this.codigo = codigo;
     }
 
-    public void setAno(int ano) {
+    public void setAno(Integer ano) {
         this.ano = ano;
     }
 
@@ -59,7 +59,7 @@ public class Produto {
         this.fabricante = fabricante;
     }
 
-    public void setLitros(int litros) {
+    public void setLitros(Integer litros) {
         this.litros = litros;
     }
 
@@ -75,11 +75,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public void setVoltagem(int voltagem) {
+    public void setVoltagem(Integer voltagem) {
         this.voltagem = voltagem;
     }
 
-    public void setAtivo(int ativo) {
+    public void setAtivo(Integer ativo) {
         this.ativo = ativo;
     }
 
@@ -113,14 +113,14 @@ public class Produto {
     public Double getPreco() {
         return preco;
     }
-    public int getAno() {
+    public Integer getAno() {
         return ano;
     }
-    public int getLitros() {
+    public Integer getLitros() {
         return litros;
     }
 
-    public int getAtivo() {
+    public Integer getAtivo() {
         return ativo;
     }
 
