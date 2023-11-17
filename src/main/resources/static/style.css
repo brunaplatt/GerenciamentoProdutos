@@ -237,6 +237,40 @@ b {
     color: #fff;
 }
 
+.links_adm {
+    background-color: midnightblue;
+}
+
+.links_adm li{
+    display: inline-block;
+}
+
+.links_adm li a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.links_adm li a:hover{
+    background-color: red;
+}
+
+.nav{
+    position: absolute;
+    box-shadow: 0 0 2px black;
+    display: none;
+}
+
+.nav a{
+    display: block;
+    color: black;
+}
+
+.link-user:hover .nav{
+    display: block;
+}
+
 
 
 
