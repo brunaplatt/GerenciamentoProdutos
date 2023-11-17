@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -262,7 +264,7 @@ b {
 .nav {
     display: none;
     position: absolute;
-    background-color: #333;
+    background-color: #1c81c0;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -278,26 +280,26 @@ b {
     display: block;
 }
 
-form {
+.cadastro {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-label {
+.campCad #status {
     display: block;
     margin-bottom: 8px;
 }
 
-input, select {
+.campCad #status {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
 }
 
-button {
+.btnCad {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
@@ -308,4 +310,8 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.pag-user {
+
 }

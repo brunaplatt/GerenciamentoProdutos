@@ -1,3 +1,4 @@
+//função login
 function login() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
@@ -11,6 +12,7 @@ function login() {
     }
 }
 
+//função direcionar user comum e admin
 function redirecionarUsuario(username) {
     if (username === 'admin') {
         window.location.href = 'usuarioadmin.html';
@@ -19,12 +21,14 @@ function redirecionarUsuario(username) {
     }
 }
 
+//abrir nova janela de reset senha
 function abrirNovaJanela() {
     var novaJanela = window.open('redefinirsenha.html', '_blank', 'width=400, height=300');
         novaJanela.addEventListener('load', function (){
         });
 }
 
+//função resetar senha
 function resetPassword() {
     var newPassword = document.getElementById('new-password').value;
     var confirmPassword = document.getElementById('confirm-password').value;
@@ -52,6 +56,7 @@ function senhaConfirmada() {
     window.close();
 }
 
+// função botão flutuante página index.html
 window.onscroll = function () { scrollFunction() };
 function scrollFunction() {
     var btnTopo = document.getElementById("btnTop");
@@ -65,3 +70,4 @@ function scrollToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+

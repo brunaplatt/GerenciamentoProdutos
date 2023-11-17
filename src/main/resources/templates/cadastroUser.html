@@ -8,29 +8,67 @@
     <link th:href="@{/styles.css}" rel="stylesheet" />
 </head>
 <body>
-<form action="submit" method="post">
-    <label for="nome">Nome Completo:</label>
-    <input type="text" id="nome" name="nome" required>
+<div class="barra_menu">
+    <div class="logo"><img src="../static/logo.png" alt="imagem da logo"></div>
+    <div class="menu_titulo"><h2>Gerenciador de Produtos</h2></div>
+</div>
+<div class="links_adm">
+    <ul>
+        <li class="link-user">
+            <a href="usuarioadmin.html">Home</a>
+        </li>
+        <li class="link-user">
+            <a href="">Usuários</a>
 
-    <label for="setor">Setor:</label>
-    <input type="text" id="setor" name="setor" required>
+            <div class="nav">
+                <a href="cadastroUser.html">Cadastros</a>
+                <a href="listarUser.html">Consultas</a>
+                <a href="relatorioUser.html">Relatórios</a>
+            </div>
+        </li>
+        <li class="link-user">
+            <a href="">Produtos</a>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+            <div class="nav">
+                <a href="cadastroProd.html">Cadastros</a>
+                <a href="listarProd.html">Consultas</a>
+                <a href="relatorioProd.html">Relatórios</a>
+            </div>
+        </li>
+        <li class="link-user">
+            <a href="">Estoque</a>
 
-    <label for="senha">Senha:</label>
-    <input type="password" id="senha" name="senha" required>
+            <div class="nav">
+                <a href="listarEst.html">Consultas</a>
+                <a href="relatorioEst.html">Relatórios</a>
+            </div>
+        </li>
+    </ul>
 
-    <label for="status">Status:</label>
+</div>
+<form class="cadastro" action="submit" method="post">
+    <label class="titCad" for="nome">Nome Completo:</label>
+    <input class="campCad" type="text" id="nome" name="nome" required>
+
+    <label class="titCad" for="setor">Setor:</label>
+    <input class="campCad" type="text" id="setor" name="setor" required>
+
+    <label class="titCad" for="email">Email:</label>
+    <input class="campCad" type="email" id="email" name="email" required>
+
+    <label class="titCad" for="senha">Senha:</label>
+    <input class="campCad" type="password" id="senha" name="senha" required>
+
+    <label class="titCad" for="status">Status:</label>
     <select id="status" name="status">
-        <option value="ativo">Ativo</option>
-        <option value="inativo">Inativo</option>
+        <option class="optUserAt" value="ativo">Ativo</option>
+        <option class="optUserIn" value="inativo">Inativo</option>
     </select>
 
-    <label for="administrador">É administrador?</label>
-    <input type="checkbox" id="administrador" name="administrador">
+    <label class="titCad" for="administrador">É administrador?</label>
+    <input class="inpAdm" type="checkbox" id="administrador" name="administrador">
 
-    <button type="submit">Cadastrar</button>
+    <button class="btnCad" type="submit">Cadastrar</button>
 </form>
 </body>
 </html>
