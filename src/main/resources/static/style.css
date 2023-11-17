@@ -239,39 +239,73 @@ b {
 
 .links_adm {
     background-color: midnightblue;
+    padding: 10px;
 }
 
-.links_adm li{
-    display: inline-block;
+.links_adm ul{
+    list-style: none;
+    display: flex;
 }
 
-.links_adm li a{
-    display: inline-block;
-    color: white;
+.link-user {
+    position: relative;
+    margin-right: 20px;
+}
+
+.link-user a {
     text-decoration: none;
-    padding: 15px;
+    color: #fff;
+    padding: 10px;
+    display: block;
 }
 
-.links_adm li a:hover{
-    background-color: red;
-}
-
-.nav{
-    position: absolute;
-    box-shadow: 0 0 2px black;
+.nav {
     display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-.nav a{
+.nav a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
     display: block;
-    color: black;
 }
 
-.link-user:hover .nav{
+.link-user:hover .nav {
     display: block;
 }
 
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+label {
+    display: block;
+    margin-bottom: 8px;
+}
 
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
 
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
+button:hover {
+    background-color: #45a049;
+}

@@ -11,7 +11,7 @@ import lombok.Setter;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo;
+    private Long id;
     @Column
     private String nome;
     @Column
@@ -29,8 +29,7 @@ public class Produto {
     @Column
     private String cor;
     @Column
-    private Double preco;
-
+    private Float preco;
     @Column
     private Integer ativo;
 
@@ -39,8 +38,8 @@ public class Produto {
     }
 
     public Produto(String produto){ this.nome = produto; }
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setAno(Integer ano) {
@@ -71,7 +70,7 @@ public class Produto {
         this.nome = nome;
     }
 
-    public void setPreco(Double preco) {
+    public void setPreco(Float preco) {
         this.preco = preco;
     }
 
@@ -84,7 +83,7 @@ public class Produto {
     }
 
     public Long getCodigo() {
-        return codigo;
+        return id;
     }
 
     public int getVoltagem() {
@@ -110,7 +109,7 @@ public class Produto {
     public String getNome() {
         return nome;
     }
-    public Double getPreco() {
+    public Float getPreco() {
         return preco;
     }
     public Integer getAno() {
@@ -126,7 +125,7 @@ public class Produto {
 
     @Override
     public String toString(){
-        return "Produto [codigo="+codigo
+        return "Produto [id="+id
                 +", nome"+nome
                 +", categoria"+categoria
                 +", modelo"+modelo

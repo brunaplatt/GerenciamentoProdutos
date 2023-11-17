@@ -11,27 +11,36 @@ import java.util.Optional;
 @Service
 public class UsuarioService {
 
-    @Autowired
-    private UsuarioRepository usuarioDao;
+    private final UsuarioRepository usuarioRepository;
 
-    public List<Usuario> listarUsuarios() {
-        return usuarioDao.findAll();
+    @Autowired
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+
+        this.usuarioRepository = usuarioRepository;
+    }
+    public void cadastrarUsuario(Usuario usuario) {
+
+        usuarioRepository.save(usuario);
     }
 
     public Optional<Usuario> buscarUsuarioPorId(Long id) {
-        return usuarioDao.findById(id);
-    }
 
-    public void cadastrarUsuario(Usuario usuario) {
-        usuarioDao.save(usuario);
+        return usuarioRepository.findById(id);
     }
 
     public void editarUsuario(Usuario usuario) {
-        usuarioDao.save(usuario);
+
+        usuarioRepository.save(usuario);
+    }
+
+    public List<Usuario> listarUsuarios() {
+
+        return usuarioRepository.findAll();
     }
 
     public void excluirUsuario(Long id) {
-        usuarioDao.deleteById(id);
+
+        usuarioRepository.deleteById(id);
     }
 }
 

@@ -14,6 +14,7 @@ public class Usuario {
     private Long id;
     @Column
     private String nome;
+    private String setor;
     @Column
     private String email;
     @Column
@@ -29,6 +30,7 @@ public class Usuario {
     public Usuario(long id, String nome, String email, String senha, boolean status, boolean usuarioAdm) {
         this.id = id;
         this.nome = nome;
+        this.setor = setor;
         this.email = email;
         this.senha = senha;
         this.status = status;
@@ -51,6 +53,10 @@ public class Usuario {
         this.nome = nome;
     }
 
+    public String getSetor() { return setor; }
+
+    public void setSetor(String setor) { this.setor = setor; }
+
     public String getEmail() {
         return email;
     }
@@ -67,7 +73,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -75,7 +81,7 @@ public class Usuario {
         this.status = status;
     }
 
-    public boolean isUsuarioAdm() {
+    public boolean getUsuarioAdm() {
         return usuarioAdm;
     }
 
@@ -87,6 +93,7 @@ public class Usuario {
     public String toString() {
         return "Usuario[id="+id
                 +", nome"+nome
+                +", setor"+setor
                 +", email"+email
                 +", senha"+senha
                 +", status"+status

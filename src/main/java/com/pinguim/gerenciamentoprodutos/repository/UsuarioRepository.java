@@ -10,4 +10,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     @Query("Select k from Usuario k where k.nome like ?1")
     List<Usuario> buscaPorNome(String nome);
 
+
+
 }
