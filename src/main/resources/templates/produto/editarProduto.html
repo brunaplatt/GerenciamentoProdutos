@@ -23,7 +23,7 @@
         <div class="br-pagebody">
             <div class="col-12">
                 <div class="col-12 alert" style="display: none;"></div>
-                <form class="card card-default"  th:action="@{/editarProduto/(produti.id)}" method="POST"   enctype="multipart/form-data">
+                <form class="card card-default"  th:action="@{/alterarProduto}" method="POST"   enctype="multipart/form-data">
 
                     <div class="card-header">
                         <a style="margin:5px" class="btn btn-default" th:href="@{/listaProduto}" type="button">Listar</a>
@@ -54,7 +54,7 @@
                             <div class="col-md-6" id="componente_ano">
                                 <div class="form-group form-group-select2 ">
                                     <label>Ano</label>
-                                    <input class="form-control" type="number" min="1900" name="ano" max="2099" step="1"  required/>
+                                    <input class="form-control" type="number" min="1900" name="ano" max="2099" step="1"  th:value="${produto.ano}" required/>
                                 </div>
                             </div>
                         </div>
@@ -103,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+                    <input class="form-control" name="id" maxlength="255" th:value="${produto.codigo}" type="hidden">
                     <div class="card-footer">
                         <div class="row justify-content-center"></div>
                         <button style="margin:5px" class="btn btn-success">Salvar</button>

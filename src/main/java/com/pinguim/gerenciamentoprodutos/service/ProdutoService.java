@@ -18,8 +18,8 @@ public class ProdutoService {
         return produtoDao.findAll();
     }
 
-    public Optional<Produto> buscarProdutoPorId(Long id) {
-        return produtoDao.findById(id);
+    public Produto buscarProdutoPorId(Long id) {
+        return produtoDao.findById(id).get();
     }
 
     public void cadastrarProduto(Produto produto) {

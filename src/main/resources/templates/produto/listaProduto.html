@@ -41,7 +41,7 @@
                             <tbody>
                                 <tr th:each="produto : ${produtoList}">
                                     <td>
-                                        <a class="btn btn-primary btn-sm" th:href="'editarProduto/'+${produto.codigo}">
+                                        <a class="btn btn-primary btn-sm" th:href="@{'/editarProduto/'+${produto.codigo}}">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                         <a class="btn btn-danger btn-sm button-alert" th:href="@{'/deletarProduto/'+${produto.codigo}}">

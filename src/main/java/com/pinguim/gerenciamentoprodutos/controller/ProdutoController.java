@@ -42,7 +42,7 @@ public class ProdutoController {
 
     @GetMapping("/editarProduto/{codigo}")
     public ModelAndView editarProduto(@PathVariable("codigo") Long codigo){
-        Optional<Produto> produto = produtoService.buscarProdutoPorId(codigo);
+        Produto produto = produtoService.buscarProdutoPorId(codigo);
         ModelAndView mv = new ModelAndView("produto/editarProduto");
         mv.addObject("produto", produto);
         return mv;
@@ -51,6 +51,12 @@ public class ProdutoController {
     public String excluirProduto(@PathVariable("codigo") Long codigo){
         produtoService.excluirProduto(codigo);
         return "redirect:/listaProduto";
+    }
+    @PostMapping("/alterarProduto")
+    public String alterarProduto(@Validated Produto produto, BindingResult result, RedirectAttributes redirectAttributes ){
+        redirectAttributes.addFlashAttribute("mensagem","Salvo com sucesso");
+        this.produtoService.editarProduto(produto);
+        return "redirect:/adicionarProduto";
     }
     @GetMapping("/gerarRelatorio")
     public ResponseEntity<List<Produto>> getRelatorio(@RequestParam String atributo) {
