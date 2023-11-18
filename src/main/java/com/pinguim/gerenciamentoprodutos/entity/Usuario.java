@@ -91,7 +91,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario[id="+id
+        return "Usuario[id"+id
                 +", nome"+nome
                 +", setor"+setor
                 +", email"+email

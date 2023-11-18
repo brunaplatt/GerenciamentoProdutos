@@ -125,7 +125,7 @@ public class Produto {
 
     @Override
     public String toString(){
-        return "Produto [id="+id
+        return "Produto [id"+id
                 +", nome"+nome
                 +", categoria"+categoria
                 +", modelo"+modelo

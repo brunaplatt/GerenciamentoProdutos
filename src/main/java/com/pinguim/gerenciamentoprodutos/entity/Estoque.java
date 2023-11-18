@@ -10,18 +10,19 @@ public class Estoque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private Long id_produto;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_produto")
+    private Produto idProduto;
     @Column
     private int quantidade;
 
     public Estoque(){
 
     }
-    public Estoque(Long id, int quantidade, Long id_produto) {
+    public Estoque(Long id, int quantidade, Produto idProduto) {
         this.id = id;
         this.quantidade = quantidade;
-        this.id_produto = id_produto;
+        this.idProduto = idProduto;
     }
 
     public Long getId() {
@@ -37,12 +38,17 @@ public class Estoque {
     }
 
     public void setQuantidade(int quantidade) { this.quantidade = quantidade;}
+
+    public void setIdProduto(Produto produto) { this.idProduto = produto;}
+
+    public Produto getIdProduto(){return idProduto;}
+
     @Override
     public String toString() {
         return "Estoque[" +
                 "id" + id +
                 ", quantidade" + quantidade +
-                ", id_produto=" + id_produto +
+                ", idProduto" + idProduto +
                 ']';
     }
 }
