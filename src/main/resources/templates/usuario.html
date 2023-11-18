@@ -1,33 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <title>Gerenciador de Produtos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" th:href="@{pinguim.ico}">
-    <link th:href="@{/styles.css}" rel="stylesheet" />
-</head>
+<head th:replace="~{head}"></head>
 <body>
-<div class="barra_menu">
-    <div class="logo"><img src="logo.png" alt="imagem da logo"></div>
-    <div class="menu_titulo"><h2>Gerenciador de Produtos</h2></div>
-</div>
-<div class="links_adm">
-    <ul>
-        <li class="link-user">
-            <a href="usuario.html">Home</a>
-        </li>
-        <li class="link-user">
-            <a href="">Estoque</a>
-
-            <div class="nav">
-                <a href="listarEst.html">Consultas</a>
-            </div>
-        </li>
-    </ul>
-
-</div>
+<header th:replace="~{headerUser}"></header>
 <div class="pag-user">
     <h1 class="inic-user">Seja Bem-Vindo!</h1>
     <h2 class="parag-user">Escrever algo??????</h2>

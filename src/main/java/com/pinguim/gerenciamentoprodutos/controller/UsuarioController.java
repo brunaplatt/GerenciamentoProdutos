@@ -63,10 +63,4 @@ class UsuarioController {
         ModelAndView mv = new ModelAndView("usuarioAdmin");
         return mv;
     }
-
-    @GetMapping("/cadastrarUser")
-    public ModelAndView cadastroUsuario() {
-        ModelAndView mv = new ModelAndView("cadastroUser");
-        return mv;
-    }
 }
