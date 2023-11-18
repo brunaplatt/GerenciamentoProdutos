@@ -35,6 +35,7 @@ public class ProdutoService {
     }
 
     public List<Produto> gerarRelatorio(String atributo) {
+        return produtoDao.findAll();
     }
 }
 

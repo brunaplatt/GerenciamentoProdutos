@@ -23,7 +23,7 @@
         <div class="br-pagebody">
             <div class="col-12">
                 <div class="col-12 alert" style="display: none;"></div>
-                <form class="card card-default"  th:action="@{/inserirProduto}" method="POST"   enctype="multipart/form-data">
+                <form class="card card-default"  th:action="@{/editarProduto/(produti.id)}" method="POST"   enctype="multipart/form-data">
 
                     <div class="card-header">
                         <a style="margin:5px" class="btn btn-default" th:href="@{/listaProduto}" type="button">Listar</a>
@@ -34,13 +34,13 @@
                             <div class="col-md-6" id="componente_nome">
                                 <div class="form-group form-group-select2 ">
                                      <label>Nome produto</label>
-                                    <input class="form-control" name="nome" maxlength="255" value="" required>
+                                    <input class="form-control" name="nome" maxlength="255" th:value="${produto.nome}" required>
                                 </div>
                             </div>
                             <div class="col-md-6" id="componente_categoria">
                                 <div class="form-group form-group-select2 ">
                                     <label>Categoria</label>
-                                    <input class="form-control" name="categoria" maxlength="255" value="" required>
+                                    <input class="form-control" name="categoria" maxlength="255" th:value="${produto.categoria}" required>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <div class="col-md-6" id="componente_modelo">
                                 <div class="form-group form-group-select2 ">
                                     <label>Modelo</label>
-                                    <input class="form-control" name="modelo" maxlength="255" value="" required>
+                                    <input class="form-control" name="modelo" maxlength="255" th:value="${produto.modelo}" required>
                                 </div>
                             </div>
                             <div class="col-md-6" id="componente_ano">
@@ -62,13 +62,13 @@
                             <div class="col-md-6" id="componente_fabricamte">
                                 <div class="form-group form-group-select2 ">
                                     <label>Fabricante</label>
-                                    <input class="form-control" name="fabricante" maxlength="255" value="" required>
+                                    <input class="form-control" name="fabricante" maxlength="255" th:value="${produto.fabricante}" required>
                                 </div>
                             </div>
                             <div class="col-md-6" id="componente_voltagem">
                                 <div class="form-group form-group-select2 ">
                                     <label>Voltagem</label>
-                                    <input class="form-control" type="number"  name="voltagem"  step="0.01" required/>
+                                    <input class="form-control" type="number"  name="voltagem" th:value="${produto.voltagem}"  step="0.01" required/>
                                 </div>
                             </div>
                         </div>
@@ -76,13 +76,13 @@
                             <div class="col-md-6" id="componente_litros">
                                 <div class="form-group form-group-select2 ">
                                     <label>Litros</label>
-                                    <input class="form-control" type="number"  name="litros"  step="0.01" required/>
+                                    <input class="form-control" type="number"  name="litros" th:value="${produto.litros}"  step="0.01" required/>
                                 </div>
                             </div>
                             <div class="col-md-6" id="componente_cor">
                                 <div class="form-group form-group-select2 ">
                                     <label>Cor</label>
-                                    <input class="form-control" name="cor" maxlength="255" value="" >
+                                    <input class="form-control" name="cor" maxlength="255" th:value="${produto.cor}" >
                                 </div>
                             </div>
                         </div>
@@ -90,13 +90,13 @@
                             <div class="col-md-6" id="componente_preco">
                                 <div class="form-group form-group-select2 ">
                                     <label>Preço</label>
-                                    <input class="form-control" type="number"  name="preco"  step="0.01" required/>
+                                    <input class="form-control" type="number"  name="preco" th:value="${produto.preco}"  step="0.01" required/>
                                 </div>
                             </div>
                             <div class="col-md-6" id="componente_ativo">
                                 <div class="form-group form-group-select2 ">
                                     <label>Ativo</label>
-                                    <select type="text" class="form-control" name="ativo" placeholder="Ativo">
+                                    <select type="text" class="form-control" name="ativo" th:value="${produto.ativo}">
                                         <option value="0">Não</option><option value="1">Sim</option>
                                     </select>
                                 </div>
