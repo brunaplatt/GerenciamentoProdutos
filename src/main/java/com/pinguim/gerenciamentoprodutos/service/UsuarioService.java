@@ -23,9 +23,9 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-    public Optional<Usuario> buscarUsuarioPorId(Long id) {
+    public Usuario buscarUsuarioPorId(Long id) {
 
-        return usuarioRepository.findById(id);
+        return usuarioRepository.findById(id).get();
     }
 
     public void editarUsuario(Usuario usuario) {

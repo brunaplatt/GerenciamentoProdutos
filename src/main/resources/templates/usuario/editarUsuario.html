@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{head}"></head>
+<body>
+<header th:replace="~{header}"></header>
+<div class="container">
+    <div class="col-12  py-md-5 bd-content">
+        <h3 class="bd-title" id="content">Editar usuario</h3>
+        <div class="br-pagebody">
+            <div class="col-12">
+                <div class="col-12 alert" style="display: none;"></div>
+                <form class="card card-default"  th:action="@{/alterarUsuario}" method="POST"   enctype="multipart/form-data">
+
+                    <div class="card-header">
+                        <a style="margin:5px" class="btn btn-default" th:href="@{/listaUsuario}" type="button">Listar</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6" id="componente_nome">
+                                <div class="form-group form-group-select2 ">
+                                    <label>Nome completo</label>
+                                    <input class="form-control" name="nome" maxlength="255" th:value="${usuario.nome}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="componente_setor">
+                                <div class="form-group form-group-select2 ">
+                                    <label>Setor</label>
+                                    <input class="form-control" name="setor" maxlength="255" th:value="${usuario.setor}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" id="componente_email">
+                                <div class="form-group form-group-select2 ">
+                                    <label>E-mail</label>
+                                    <input class="form-control" name="email" type="email" maxlength="255" th:value="${usuario.email}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="componente_senha">
+                                <div class="form-group form-group-select2 ">
+                                    <label>Senha</label>
+                                    <input class="form-control" name="senha" type="password" maxlength="255" th:value="${usuario.senha}" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6" id="componente_usuarioAdm">
+                                <div class="form-group form-group-select2 ">
+                                    <label>É administrador?</label>
+                                    <select type="text" class="form-control" name="usuarioAdm" placeholder="Ativo"  th:value="${usuario.usuarioAdm}">
+                                        <option value="0">Não</option><option value="1">Sim</option>
+                                    </select>                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="id" maxlength="255" th:value="${usuario.id}" type="hidden">
+                    <div class="card-footer">
+                        <div class="row justify-content-center"></div>
+                        <button style="margin:5px" class="btn btn-success">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal modal-alert" tabindex="-1" role="dialog" th:if="${mensagem}" th:display="block">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Alerta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-alert-message" th:text="${mensagem}"></p>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:location.reload();" class="btn btn-primary redirect-button">Entendi</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    $("[name=usuarioAdm]").val(/*[[${usuario.usuarioAdm}]]*/"").change();
+
+</script>
+</body>
+</html>

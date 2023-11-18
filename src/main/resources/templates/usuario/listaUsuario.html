@@ -5,13 +5,13 @@
 <header th:replace="~{header}"></header>
 <div class="container">
     <div class="col-12  py-md-5 bd-content">
-        <h3 class="bd-title" id="content">Listar produtos</h3>
+        <h3 class="bd-title" id="content">Listar usuários</h3>
         <div class="br-pagebody">
             <div class="card">
                 <div class="card-header">
                     <div class="card-tools" style="float:left">
 
-                        <a style="margin:5px" class="btn btn-success" th:href="@{/adicionarProduto}" type="button">Inserir</a>
+                        <a class="btn btn-success" th:href="@{/adicionarUsuario}" type="button">Inserir</a>
 
                     </div>
                 </div>
@@ -21,26 +21,24 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Nome</th>
-                                    <th scope="col">Categoria</th>
-                                    <th scope="col">Modelo</th>
-                                    <th scope="col">Ano</th>
+                                    <th scope="col">Setor</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="produto : ${produtoList}">
+                                <tr th:each="usuario : ${usuarioList}">
                                     <td>
-                                        <a class="btn btn-primary btn-sm" th:href="@{'/editarProduto/'+${produto.codigo}}">
+                                        <a class="btn btn-primary btn-sm" th:href="@{'/editarUsuario/'+${usuario.id}}">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-sm button-alert" th:href="@{'/deletarProduto/'+${produto.codigo}}">
+                                        <a class="btn btn-danger btn-sm button-alert" th:href="@{'/deletarUsuario/'+${usuario.id}}">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
-                                    <th scope="row" th:text="${produto.nome}"></th>
-                                    <td th:text="${produto.categoria}"></td>
-                                    <td th:text="${produto.modelo}"></td>
-                                    <td th:text="${produto.ano}"></td>
+                                    <th scope="row" th:text="${usuario.id}"></th>
+                                    <td th:text="${usuario.nome}"></td>
+                                    <td th:text="${usuario.setor}"></td>
                                 </tr>
                             </tbody>
                         </table>
