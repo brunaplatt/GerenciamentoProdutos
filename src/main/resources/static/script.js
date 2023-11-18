@@ -158,3 +158,19 @@ function preencherTabela(data) {
             tabela.innerHTML += `<tr><td>${produto.atributo1}</td><td>${produto.atributo2}</td><td>${produto.quantidadeDisponivel}</td></tr>`;
         }
 }
+
+//Download Relatórios
+document.getElementById('downloadButton').addEventListener('click', function() {
+    var downloadLink = document.createElement('a');
+    var blob = new Blob([document.documentElement.outerHTML], { type: 'text/html' });
+
+    downloadLink.href = URL.createObjectURL(blob);
+
+    downloadLink.download = 'relatorio.html';
+
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+
+    document.body.removeChild(downloadLink);
+});
