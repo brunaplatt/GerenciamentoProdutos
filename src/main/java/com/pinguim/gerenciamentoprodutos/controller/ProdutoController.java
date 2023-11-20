@@ -1,6 +1,7 @@
 package com.pinguim.gerenciamentoprodutos.controller;
 
 import com.pinguim.gerenciamentoprodutos.entity.Produto;
+import com.pinguim.gerenciamentoprodutos.repository.ProdutoRepository;
 import com.pinguim.gerenciamentoprodutos.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +13,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
+@RequestMapping
 public class ProdutoController {
 
     @Autowired
     private ProdutoService produtoService;
+    private final ProdutoRepository produtoRepository;
+
+    public ProdutoController(ProdutoRepository produtoRepository) {
+        this.produtoRepository = produtoRepository;
+    }
 
     @GetMapping("/listaProduto")
     public ModelAndView listaProduto(){

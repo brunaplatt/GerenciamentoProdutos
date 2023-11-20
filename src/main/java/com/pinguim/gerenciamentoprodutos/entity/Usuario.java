@@ -1,104 +1,85 @@
 package com.pinguim.gerenciamentoprodutos.entity;
 
+import com.pinguim.gerenciamentoprodutos.autenticacao.UsuarioDetails;
+import com.pinguim.gerenciamentoprodutos.autenticacao.UsuarioRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import java.util.Collection;
+import java.util.List;
 
-
-@Entity
-public class Usuario {
+@Table(name = "users")
+@Entity(name = "users")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+public final class Usuario implements UsuarioDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private Long id;
     @Column
     private String nome;
+    @Column
     private String setor;
     @Column
     private String email;
     @Column
-    private String senha;
+    private String login;
+    @Column
+    private String password;
     @Column
     private boolean status;
     @Column
-    private boolean usuarioAdm;
+    private UsuarioRole role;
 
-    public Usuario(){
-
-    }
-    public Usuario(long id, String nome, String email, String senha, boolean status, boolean usuarioAdm) {
-        this.id = id;
+    public Usuario(String nome, String setor, String email, String login, String password, Boolean status, UsuarioRole role) {
         this.nome = nome;
         this.setor = setor;
         this.email = email;
-        this.senha = senha;
+        this.login = login;
+        this.password = password;
         this.status = status;
-        this.usuarioAdm = usuarioAdm;
+        this.role = role;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSetor() { return setor; }
-
-    public void setSetor(String setor) { this.setor = setor; }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public boolean getUsuarioAdm() {
-        return usuarioAdm;
-    }
-
-    public void setUsuarioAdm(boolean usuarioAdm) {
-        this.usuarioAdm = usuarioAdm;
+    public Usuario(String login, String encryptedPassword, UsuarioRole role) {
     }
 
     @Override
-    public String toString() {
-        return "Usuario[id"+id
-                +", nome"+nome
-                +", setor"+setor
-                +", email"+email
-                +", senha"+senha
-                +", status"+status
-                +", usuarioAdm"+usuarioAdm
-                +"]";
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if (this.role == UsuarioRole.ADMIN)
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USUARIO"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USUARIO"));
+    }
+
+    @Override
+    public String getUsername() {
+        return login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
 

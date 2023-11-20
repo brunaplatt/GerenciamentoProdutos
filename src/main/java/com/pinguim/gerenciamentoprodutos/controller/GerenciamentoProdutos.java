@@ -5,7 +5,6 @@ import com.pinguim.gerenciamentoprodutos.repository.ProdutoRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,9 +18,6 @@ public class GerenciamentoProdutos {
     @GetMapping ("/hello")
     public ResponseEntity<Produto> helloWord(){
         Produto produto = new Produto();
-        produto.setModelo("Frost Free French Door A+++ - BRO85AK");
-        produto.setAno(2022);
-        produto.setFabricante("Brastemp");
         return new ResponseEntity<>(produto, HttpStatus.OK);
     }
     @GetMapping ("/listar")
@@ -53,14 +49,14 @@ public class GerenciamentoProdutos {
         return "Produto alterado com sucesso";
     }
 
-    @DeleteMapping("/excluir/{codigo}")
-    public String excluirProduto(@PathVariable("codigo") Long codigo){
-        produtoRepository.deleteById(codigo);
+    @DeleteMapping("/excluir/{id}")
+    public String excluirProduto(@PathVariable("id") Long id){
+        produtoRepository.deleteById(id);
         return "Produto excluído com sucesso";
     }
 
-    @GetMapping("/consultar/{codigo}")
-    public Optional<Produto> consultaProduto(@PathVariable("codigo") Long codigo){
-        return produtoRepository.findById(codigo);
+    @GetMapping("/consultar/{id}")
+    public Optional<Produto> consultaProduto(@PathVariable("id") Long id){
+        return produtoRepository.findById(id);
     }
 }
