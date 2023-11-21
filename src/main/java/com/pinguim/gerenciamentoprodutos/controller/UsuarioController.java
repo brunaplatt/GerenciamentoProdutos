@@ -81,9 +81,9 @@ class UsuarioController {
         }
     }
 
-    @GetMapping("/Admin")
-    public ModelAndView admin() {
-        ModelAndView mv = new ModelAndView("usuarioAdmin");
+    @GetMapping("/alterarsenha")
+    public ModelAndView alterarSenha() {
+        ModelAndView mv = new ModelAndView("redefinirSenha");
         return mv;
     }
 }

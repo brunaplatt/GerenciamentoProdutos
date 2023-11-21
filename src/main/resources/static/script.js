@@ -1,26 +1,3 @@
-//função login
-function login() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    var autorizado = (username === 'admin' && password === 'admin123');
-
-    if (autorizado) {
-        redirecionarUsuario(username);
-    } else {
-        alert('Credenciais inválidas');
-    }
-}
-
-//função direcionar user comum e admin
-function redirecionarUsuario(username) {
-    if (username === 'admin') {
-        window.location.href = 'usuarioadmin.html';
-    } else {
-        window.location.href = 'usuario.html';
-    }
-}
-
 //abrir nova janela de reset senha
 function abrirNovaJanela() {
     var novaJanela = window.open('redefinirsenha.html', '_blank', 'width=400, height=300');
