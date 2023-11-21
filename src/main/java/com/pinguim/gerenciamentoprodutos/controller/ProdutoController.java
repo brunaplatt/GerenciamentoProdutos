@@ -30,7 +30,6 @@ public class ProdutoController {
     @GetMapping("/listaProduto")
     public ModelAndView listaProduto( HttpServletRequest request){
         Object teste = request.getSession().getAttribute("admin");
-        System.out.println(teste);
         List<Produto> produtoList = this.produtoService.listarProdutos();
         ModelAndView mv = new ModelAndView("produto/listaProduto");
         mv.addObject("produtoList", produtoList);

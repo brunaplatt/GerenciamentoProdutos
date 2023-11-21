@@ -55,7 +55,7 @@
     document.getElementById('relatorioUsuario').addEventListener('click', function() {
         var rows = /*[[${usuarioList}]]*/""
         var csvContent = "data:text/csv;charset=utf-8,";
-        csvContent += "id;nome;setor;email;senha;status;adm;\n"
+        csvContent += "id;nome;categoria;email;senha;status;adm;\n"
         for (var key in rows) {
             for(var dado in rows[key]){
                 csvContent += rows[key][dado] + ";"

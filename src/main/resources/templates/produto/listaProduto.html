@@ -58,7 +58,7 @@
     document.getElementById('relatorio').addEventListener('click', function() {
         var rows = /*[[${produtoList}]]*/""
         var csvContent = "data:text/csv;charset=utf-8,";
-        csvContent += "id;nome;setor;email;senha;status;adm;\n"
+        csvContent += "id;nome;categoria;modelo;ano;fabricante;voltagem;listros;cor;preco;ativo\n"
         for (var key in rows) {
             for(var dado in rows[key]){
                 csvContent += rows[key][dado] + ";"
