@@ -1,17 +1,16 @@
 package com.pinguim.gerenciamentoprodutos.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
 
-@Table(name = "produto")
-@Entity(name = "produto")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
 public class Produto {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String nome;
@@ -30,11 +29,102 @@ public class Produto {
     @Column
     private String cor;
     @Column
-    private Integer preco;
+    private Float preco;
     @Column
-    private Boolean status;
+    private Integer ativo;
 
-    public String toString(String nome, String modelo, Integer ano, String fabricante, Integer voltagem, Integer litros, String cor, Integer preco, Boolean  status){
+    public Produto(){
+
+    }
+
+    public Produto(String produto){ this.nome = produto; }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setAno(Integer ano) {
+        this.ano = ano;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public void setLitros(Integer litros) {
+        this.litros = litros;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPreco(Float preco) {
+        this.preco = preco;
+    }
+
+    public void setVoltagem(Integer voltagem) {
+        this.voltagem = voltagem;
+    }
+
+    public void setAtivo(Integer ativo) {
+        this.ativo = ativo;
+    }
+
+    public Long getCodigo() {
+        return id;
+    }
+
+    public int getVoltagem() {
+        return voltagem;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    public Float getPreco() {
+        return preco;
+    }
+    public Integer getAno() {
+        return ano;
+    }
+    public Integer getLitros() {
+        return litros;
+    }
+
+    public Integer getAtivo() {
+        return ativo;
+    }
+
+    @Override
+    public String toString(){
         return "Produto [id"+id
                 +", nome"+nome
                 +", categoria"+categoria
@@ -45,8 +135,7 @@ public class Produto {
                 +", litros"+litros
                 +", cor"+cor
                 +", preco"+preco
-                +", status"+status
+                +", ativo"+ativo
                 +"]";
     }
 }
-

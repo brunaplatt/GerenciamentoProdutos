@@ -3,6 +3,7 @@ package com.pinguim.gerenciamentoprodutos.controller;
 import com.pinguim.gerenciamentoprodutos.entity.Produto;
 import com.pinguim.gerenciamentoprodutos.repository.ProdutoRepository;
 import com.pinguim.gerenciamentoprodutos.service.ProdutoService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,7 +28,9 @@ public class ProdutoController {
     }
 
     @GetMapping("/listaProduto")
-    public ModelAndView listaProduto(){
+    public ModelAndView listaProduto( HttpServletRequest request){
+        Object teste = request.getSession().getAttribute("admin");
+        System.out.println(teste);
         List<Produto> produtoList = this.produtoService.listarProdutos();
         ModelAndView mv = new ModelAndView("produto/listaProduto");
         mv.addObject("produtoList", produtoList);

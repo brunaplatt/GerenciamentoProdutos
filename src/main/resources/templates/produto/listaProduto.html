@@ -45,7 +45,7 @@
                             </tbody>
                         </table>
 
-                        <button id="downloadButton">Baixar Relatório</button>
+                        <button id="relatorio">Baixar Relatório</button>
 
                     </div>
                 </div>
@@ -54,6 +54,26 @@
     </div>
 </div>
 
+<script  th:inline="javascript">
+    document.getElementById('relatorio').addEventListener('click', function() {
+        var rows = /*[[${produtoList}]]*/""
+        var csvContent = "data:text/csv;charset=utf-8,";
+        csvContent += "id;nome;setor;email;senha;status;adm;\n"
+        for (var key in rows) {
+            for(var dado in rows[key]){
+                csvContent += rows[key][dado] + ";"
+            }
+            csvContent += "\n";
+        }
+        var downloadLink = document.createElement('a');
+
+
+        /*let csvContent = "data:text/csv;charset=utf-8,"
+            + rows.map(e => e.join(",")).join("\n");*/
+        var encodedUri = encodeURI(csvContent);
+        window.open(encodedUri);
+    });
+</script>
 
 <script th:src="@{script.js}"></script>
 </body>

@@ -48,7 +48,7 @@
                             <div class="col-md-6" id="componente_usuarioAdm">
                                 <div class="form-group form-group-select2 ">
                                     <label>É administrador?</label>
-                                    <select type="text" class="form-control" name="usuarioAdm" placeholder="Ativo"  th:value="${usuario.usuarioAdm}">
+                                    <select type="text" class="form-control" name="usuarioAdm" placeholder="Ativo"  th:value="${adm}">
                                         <option value="0">Não</option><option value="1">Sim</option>
                                     </select>                                </div>
                             </div>
@@ -83,7 +83,7 @@
     </div>
 </div>
 <script th:inline="javascript">
-    $("[name=usuarioAdm]").val(/*[[${usuario.usuarioAdm}]]*/"").change();
+    $("[name=adm]").val(/*[[${adm}]]*/"").change();
 
 </script>
 </body>

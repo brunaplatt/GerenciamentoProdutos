@@ -42,5 +42,5 @@ public class UsuarioService {
 
         usuarioRepository.deleteById(id);
     }
+    public Usuario buscaPorNome(String nome){return usuarioRepository.buscaPorNome(nome);}
 }
-

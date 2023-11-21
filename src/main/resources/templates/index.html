@@ -28,16 +28,17 @@
 </div>
 <div class="secao secao-login" id="login">
     <h3>ACESSE O SISTEMA</h3>
-
-    <input type="text" id="username" name="username" placeholder="Digite seu usuário">
-    <br>
-    <br>
-    <input type="password" id="password" name="password" placeholder="Digite sua senha">
-    <br>
-    <br>
-    <button onclick="login()">Entrar</button>
-    <br>
-    <br>
+    <form  th:action="@{/autenticacao}" method="POST"   enctype="multipart/form-data">
+        <input type="text" id="username" name="nome" placeholder="Digite seu usuário">
+        <br>
+        <br>
+        <input type="password" id="password" name="senha" placeholder="Digite sua senha">
+        <br>
+        <br>
+        <button>Entrar</button>
+        <br>
+        <br>
+    </form>
     <a class="redefinir-senha" href="redefinirSenha.html" target="_blank" onclick="abrirNovaJanela(); resetPassword();">Esqueceu sua Senha?</a>
 </div>
 <div class="secao secao-contato" id="contato">
